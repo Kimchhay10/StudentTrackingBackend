@@ -18,5 +18,7 @@ export class Student {
   condition: string;
   @Prop({ default: Date.now() })
   date_added: Date;
+  @Prop({ default: 'student' })
+  role: string;
 }
 export const StudentSchema = SchemaFactory.createForClass(Student);

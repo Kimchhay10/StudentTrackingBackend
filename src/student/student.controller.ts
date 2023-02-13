@@ -19,30 +19,30 @@ import { diskStorage } from 'multer';
 import * as path from 'path';
 import { of } from 'rxjs/internal/observable/of';
 import { join } from 'path';
-import { StudenDto } from 'src/dto/student.dto';
+import { StudentDto } from 'src/dto/student.dto';
 @Controller('student')
 export class StudentController {
   constructor(private readonly studentService: StudentService) {}
   @Post()
-  async createStudent(@Body() studentDto: StudenDto) {
+  async createStudent(@Body() studentDto: StudentDto) {
     return this.studentService.createStudent(studentDto);
   }
   @Get()
   getStudent() {
     return this.studentService.readStudent();
   }
-  @Get(':id')
+  @Get('/:id')
   getStudentById(@Param('id') id: string) {
     return this.studentService.getStudentById(id);
   }
-  @Put(':id')
+  @Put('/:id')
   async updateStudent(
     @Param('id') id: string,
     @Body() updateData: StudentUpdateDto,
   ): Promise<Student> {
     return this.studentService.updateStudent(id, updateData);
   }
-  @Delete(':id')
+  @Delete('/:id')
   async deleteStudent(@Param('id') id: string) {
     this.studentService.deleteStudent(id);
     return { msg: `${id} deleted from database` };

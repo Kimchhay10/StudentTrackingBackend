@@ -1,6 +1,6 @@
 import { IsEmail, IsNotEmpty } from 'class-validator';
 
-export class StudenDto {
+export class StudentDto {
   @IsNotEmpty()
   @IsEmail({}, { message: 'Please enter correct email' })
   readonly email: string;
@@ -14,4 +14,6 @@ export class StudenDto {
   readonly engagement: string;
 
   readonly condition: string;
+
+  readonly role: string;
 }
