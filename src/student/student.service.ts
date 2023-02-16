@@ -23,6 +23,10 @@ export class StudentService {
       })
       .catch((err) => console.log(err));
   }
+  async getStudentByEmail(email: string) {
+    const user = await this.studentModel.findOne({ email });
+    return user;
+  }
   async getStudentById(id: string) {
     return this.studentModel
       .findById(id)

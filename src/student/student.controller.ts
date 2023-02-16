@@ -35,6 +35,10 @@ export class StudentController {
   getStudentById(@Param('id') id: string) {
     return this.studentService.getStudentById(id);
   }
+  @Get('/detail/:email')
+  getStudentByEmail(@Param('email') email: string) {
+    return this.studentService.getStudentByEmail(email);
+  }
   @Put('/:id')
   async updateStudent(
     @Param('id') id: string,
