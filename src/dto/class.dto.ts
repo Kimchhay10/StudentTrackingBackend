@@ -1,15 +1,8 @@
-import { IsNotEmpty } from 'class-validator';
+import { IsArray, IsNotEmpty } from 'class-validator';
+import { StudentOfClassDto } from './student_of_class.dto';
 
 export class ClassDto {
   @IsNotEmpty()
-  readonly name: string;
-
-  @IsNotEmpty()
-  readonly semester: string;
-
-  @IsNotEmpty()
-  readonly branch: string;
-
-  @IsNotEmpty()
-  readonly isPresent: boolean;
+  @IsArray()
+  readonly student: StudentOfClassDto[];
 }
