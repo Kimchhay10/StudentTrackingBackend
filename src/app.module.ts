@@ -6,6 +6,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { StudentModule } from './student/student.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { ClassModule } from './class/class.module';
 @Module({
   imports: [
     MongooseModule.forRoot(
@@ -18,6 +19,7 @@ import { ConfigModule } from '@nestjs/config';
     }),
     StudentModule,
     AuthModule,
+    ClassModule,
   ],
   controllers: [AppController],
   providers: [AppService],
