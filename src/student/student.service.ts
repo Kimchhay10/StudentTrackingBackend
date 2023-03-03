@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { StudentDto } from 'src/dto/student.dto';
-import { Student, StudentDocument } from 'src/models/student.model';
+import { StudentDto } from 'src/student/dto/student.dto';
+import { Student, StudentDocument } from 'src/student/schemas/student.model';
 
 @Injectable()
 export class StudentService {
@@ -10,7 +10,7 @@ export class StudentService {
     @InjectModel('student')
     private readonly studentModel: Model<StudentDocument>,
   ) {}
-  async createStudent(student: StudentDto): Promise<StudentDto> {
+  async createStudent(student: StudentDto): Promise<Student> {
     const newStudent = new this.studentModel(student);
     return newStudent.save();
   }

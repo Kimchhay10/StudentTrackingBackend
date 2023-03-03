@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from '@nestjs/common';
-import { ClassDto } from 'src/dto/class.dto';
-import { StudentOfClassDto } from 'src/dto/student_of_class.dto';
+import { ClassDto } from 'src/class/dto/class.dto';
+import { StudentOfClassDto } from 'src/class/dto/student_of_class.dto';
 import { ClassService } from './class.service';
 
 @Controller('class')

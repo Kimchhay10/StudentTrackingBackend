@@ -11,15 +11,15 @@ import {
   UploadedFile,
   UseInterceptors,
 } from '@nestjs/common';
-import { StudentUpdateDto } from 'src/dto/studentUpdate.dto';
-import { Student } from 'src/models/student.model';
+import { StudentUpdateDto } from 'src/student/dto/studentUpdate.dto';
+import { Student } from 'src/student/schemas/student.model';
 import { StudentService } from './student.service';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { diskStorage } from 'multer';
 import * as path from 'path';
 import { of } from 'rxjs/internal/observable/of';
 import { join } from 'path';
-import { StudentDto } from 'src/dto/student.dto';
+import { StudentDto } from 'src/student/dto/student.dto';
 @Controller('student')
 export class StudentController {
   constructor(private readonly studentService: StudentService) {}

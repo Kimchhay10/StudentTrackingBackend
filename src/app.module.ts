@@ -1,4 +1,4 @@
-import { StudentSchema } from './models/student.model';
+import { StudentSchema } from './student/schemas/student.model';
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';

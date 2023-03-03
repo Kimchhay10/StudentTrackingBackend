@@ -1,6 +1,7 @@
 import { IsNotEmpty } from 'class-validator';
 
 export class StudentOfClassDto {
+  readonly slugId: string;
   @IsNotEmpty()
   readonly name: string;
 
