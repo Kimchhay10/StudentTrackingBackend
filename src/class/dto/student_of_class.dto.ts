@@ -12,5 +12,5 @@ export class StudentOfClassDto {
   readonly branch: string;
 
   @IsNotEmpty()
-  readonly isPresent: boolean;
+  readonly isPresent: string;
 }
