@@ -12,8 +12,8 @@ export class Student {
   @Prop({})
   branch: string;
   @Prop({})
-  isPresent: boolean;
-  @Prop({})
+  isPresent: string;
+  @Prop({ unique: true })
   slugId: string;
 }
 

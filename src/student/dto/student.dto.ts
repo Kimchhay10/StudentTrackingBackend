@@ -1,4 +1,4 @@
-import { IsBoolean, IsEmail, IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class StudentDto {
   @IsNotEmpty()
@@ -11,8 +11,8 @@ export class StudentDto {
   @IsString()
   branch: string;
   @IsNotEmpty()
-  @IsBoolean()
-  isPresent: boolean;
+  @IsString()
+  isPresent: string;
   @IsNotEmpty()
   @IsString()
   slugId: string;
