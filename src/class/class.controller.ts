@@ -25,4 +25,11 @@ export class ClassController {
   async getClass() {
     return await this.classService.getClass();
   }
+  @Get('/student/:classId/:studentId')
+  async getStudentByIdOfClass(
+    @Param('classId') classId,
+    @Param('studentId') studentId,
+  ) {
+    return await this.classService.getStudentByIdOfClass(classId, studentId);
+  }
 }

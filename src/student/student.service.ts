@@ -28,13 +28,15 @@ export class StudentService {
     return user;
   }
   async getStudentById(id: string) {
-    return this.studentModel
-      .findById(id)
-      .then((student) => {
+    try {
+      return this.studentModel.findById(id).then((student) => {
         return student;
-      })
-      .catch((err) => console.log(err));
+      });
+    } catch (error) {
+      throw error;
+    }
   }
+
   async updateStudent(id, data): Promise<Student> {
     return this.studentModel.findByIdAndUpdate(id, data, { new: true });
   }

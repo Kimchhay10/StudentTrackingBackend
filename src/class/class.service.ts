@@ -5,10 +5,13 @@ import { ClassDto } from 'src/class/dto/class.dto';
 import { StudentOfClassDto } from 'src/class/dto/student_of_class.dto';
 import { Class, ClassDocument } from 'src/class/schemas/class.model';
 import slugify from 'slugify';
+import { StudentDocument } from 'src/student/schemas/student.model';
 @Injectable()
 export class ClassService {
   constructor(
     @InjectModel('class') private readonly classModel: Model<ClassDocument>,
+    @InjectModel('student')
+    private readonly studentModel: Model<StudentDocument>,
   ) {}
 
   async createClass(classDto: ClassDto): Promise<Class> {
@@ -48,5 +51,17 @@ export class ClassService {
   }
   async getClassById(id: string) {
     return this.classModel.findById(id);
+  }
+  async getStudentByIdOfClass(classId: string, studentId: string) {
+    try {
+      const students = await this.classModel.findById({ _id: classId });
+      const filterById = students.student.filter(
+        (student) => student._id.toString() === studentId,
+      );
+      //convert array into json because it has only one object
+      return filterById.reduce((obj) => Object.assign(obj));
+    } catch (err) {
+      throw err;
+    }
   }
 }

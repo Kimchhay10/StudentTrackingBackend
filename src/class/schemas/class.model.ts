@@ -12,7 +12,7 @@ export class Class {
   room: string;
   @Prop({ default: Date.now() })
   date: Date;
-  @Prop({ type: [StudentSchema] })
+  @Prop({ type: [StudentSchema], isRequired: false })
   student: Student[];
 }
 

@@ -1,19 +1,20 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, ObjectId } from 'mongoose';
 
 export type StudentDocument = Student & Document;
 
 @Schema()
 export class Student {
-  @Prop({})
+  _id: ObjectId;
+  @Prop()
   name: string;
-  @Prop({})
+  @Prop()
   semester: string;
-  @Prop({})
+  @Prop()
   branch: string;
-  @Prop({})
+  @Prop()
   isPresent: string;
-  @Prop({ unique: true })
+  @Prop()
   slugId: string;
 }
 
