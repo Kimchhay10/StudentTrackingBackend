@@ -1,9 +1,8 @@
-import { IsNotEmpty, IsString } from 'class-validator';
+import { IsNotEmpty } from 'class-validator';
 import { ObjectId } from 'mongoose';
 
 export class StudentOfClassDto {
   _id: ObjectId;
-  @IsString()
   readonly slugId: string;
   @IsNotEmpty()
   readonly name: string;
