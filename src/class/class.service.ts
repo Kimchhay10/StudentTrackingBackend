@@ -64,4 +64,20 @@ export class ClassService {
       throw err;
     }
   }
+  async deleteStudentByIdOfClass(classId: string, studentId: string) {
+    try {
+      const classes = await this.classModel.findById({ _id: classId });
+      const studentByIndex = classes.student.findIndex(
+        (item) => item._id.toString() === studentId,
+      );
+      classes.student.splice(studentByIndex, 1);
+      const payload = classes.student;
+      return this.classModel.updateMany(
+        { _id: classId },
+        { $set: { student: payload } },
+      );
+    } catch (err) {
+      throw err;
+    }
+  }
 }

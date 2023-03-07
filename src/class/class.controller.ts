@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { ClassDto } from 'src/class/dto/class.dto';
 import { StudentOfClassDto } from 'src/class/dto/student_of_class.dto';
 import { ClassService } from './class.service';
@@ -31,5 +31,12 @@ export class ClassController {
     @Param('studentId') studentId,
   ) {
     return await this.classService.getStudentByIdOfClass(classId, studentId);
+  }
+  @Delete('/student/:classId/:studentId')
+  async deleteStudentByIdOfClass(
+    @Param('classId') classId,
+    @Param('studentId') studentId,
+  ) {
+    return await this.classService.deleteStudentByIdOfClass(classId, studentId);
   }
 }
